@@ -196,10 +196,10 @@ body {
 .bg-shape-signup {
     transform: rotate(-2deg);
     position: absolute;
-    top: 56%;
+    top: 59.6%;
     right: 44%;
     width: 15%;
-    height: 46%;
+    height: 42%;
     background: #c4e5fe;
     border-top-left-radius: 400px;
     border-bottom-left-radius: 200px;
@@ -291,7 +291,7 @@ body {
     }
 
     .bg-shape-signup {
-        top: 57.9%;
+        top: 61.4%;
     }
 }
 
@@ -301,6 +301,6 @@ body {
     }
 
     .bg-shape-signup {
-        top: 63.9%;
+        top: 66.9%;
     }
 }
