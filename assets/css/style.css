@@ -193,6 +193,19 @@ body {
     z-index: 1;
 }
 
+.bg-shape-signup {
+    transform: rotate(-2deg);
+    position: absolute;
+    top: 56%;
+    right: 44%;
+    width: 15%;
+    height: 46%;
+    background: #c4e5fe;
+    border-top-left-radius: 400px;
+    border-bottom-left-radius: 200px;
+    z-index: 1;
+}
+
 .illustration-img {
     position: relative;
     z-index: 1;
@@ -262,6 +275,10 @@ body {
         display: none;
     }
 
+    .bg-shape-signup {
+        display: none;
+    }
+
     .illustration-img {
         max-height: 350px;
         width: auto;
@@ -272,10 +289,18 @@ body {
     .bg-shape {
         top: 60.6%;
     }
+
+    .bg-shape-signup {
+        top: 57.9%;
+    }
 }
 
 @media (max-width: 1100px) {
     .bg-shape {
         top: 66.3%;
+    }
+
+    .bg-shape-signup {
+        top: 63.9%;
     }
 }
