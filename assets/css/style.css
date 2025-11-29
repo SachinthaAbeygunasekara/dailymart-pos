@@ -118,6 +118,23 @@ body {
     background: linear-gradient(to right, #2563eb, #1d4ed8);
 }
 
+.signup-btn {
+    background: linear-gradient(to right, #28a745, #218838);
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    color: #fff;
+}
+
+.signup-btn:hover {
+    background: linear-gradient(to right, #24913b, #259940);
+}
+
 .touch-id-section {
     text-align: center;
     color: #666;
@@ -166,10 +183,10 @@ body {
 .bg-shape {
     transform: rotate(-2deg);
     position: absolute;
-    top: 55%;
+    top: 59%;
     right: 44%;
     width: 15%;
-    height: 47%;
+    height: 43%;
     background: #c4e5fe;
     border-top-left-radius: 400px;
     border-bottom-left-radius: 200px;
