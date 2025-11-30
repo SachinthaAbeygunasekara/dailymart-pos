@@ -225,6 +225,12 @@ body {
     border-top: 15px solid #c28e65;
 }
 
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    display: none;
+}
+
 @media (max-width: 991px) {
     .main-container {
         flex-direction: column;

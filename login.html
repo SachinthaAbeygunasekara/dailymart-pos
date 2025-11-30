@@ -23,7 +23,7 @@
 
                 <div class="login-card mt-4">
                     <h2 class="login-header">Login</h2>
-                    <form>
+                    <form onsubmit="return false">
                         <div class="input-group">
                             <i class="fas fa-user input-icon"></i>
                             <input id="txtUsername" class="form-control" placeholder="Username" required>
@@ -62,7 +62,7 @@
             <div class="desk"></div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./assets/js/auth.js"></script>
     <script>
         function redirectToSignup() {
