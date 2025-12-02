@@ -236,17 +236,25 @@ function initializeEventListeners() {
     });
 
     const menuToggle = document.getElementById('menuToggle');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebarOverlay');
+    const sidebarElement = document.getElementById('sidebar');
+    const overlayElement = document.getElementById('sidebarOverlay');
 
     menuToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
+        const isDesktop = window.innerWidth > 992;
+
+        if (isDesktop) {
+            // Desktop: toggle collapsed class, no overlay
+            sidebarElement.classList.toggle('collapsed');
+        } else {
+            // Mobile: toggle active class with overlay
+            sidebarElement.classList.toggle('active');
+            overlayElement.classList.toggle('active');
+        }
     });
 
-    overlay.addEventListener('click', () => {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
+    overlayElement.addEventListener('click', () => {
+        sidebarElement.classList.remove('active');
+        overlayElement.classList.remove('active');
     });
 
     document.querySelectorAll('.nav-link[data-page]').forEach(link => {
@@ -255,8 +263,8 @@ function initializeEventListeners() {
             this.classList.add('active');
             const page = this.dataset.page;
             if (page !== 'dashboard') alert(`Navigating to ${page} page...`);
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
+            sidebarElement.classList.remove('active');
+            overlayElement.classList.remove('active');
         });
     });
 
