@@ -1,0 +1,32 @@
+body {
+    background-color: #f3f4f6;
+    font-family: 'Inter', sans-serif;
+}
+
+.invoice-card {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.brand-color {
+    color: #447ef1;
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .invoice-card {
+        box-shadow: none;
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}

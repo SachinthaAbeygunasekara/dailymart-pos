@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Mart - Invoice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/invoice.css">
+</head>
+
+<body>
+
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4 no-print"
+            style="max-width: 800px; margin: 0 auto;">
+            <a href="home.html" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+            </a>
+            <div class="d-flex gap-2">
+                <button onclick="printInvoice()" class="btn btn-secondary">
+                    <i class="fas fa-print me-2"></i>Print
+                </button>
+                <button onclick="downloadPDF()" class="btn btn-primary">
+                    <i class="fas fa-download me-2"></i>Download PDF
+                </button>
+            </div>
+        </div>
+
+        <div class="invoice-card p-5" id="invoiceContent">
+            <div class="d-flex justify-content-between align-items-start mb-5">
+                <div>
+                    <h1 class="h3 fw-bold brand-color mb-1"><i class="fas fa-store me-2"></i>Daily Mart</h1>
+                    <p class="text-muted mb-0">Supermarket POS System</p>
+                    <p class="text-muted small">123 Main Street, Colombo, Sri Lanka</p>
+                </div>
+                <div class="text-end">
+                    <h2 class="h4 fw-bold text-uppercase text-muted mb-3">Invoice</h2>
+                    <p class="mb-1 fw-bold" id="invId">#INV-0000</p>
+                    <p class="text-muted mb-0" id="invDate">Date: -</p>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-6">
+                    <h6 class="text-uppercase text-muted small fw-bold mb-2">Bill To:</h6>
+                    <h5 class="fw-bold mb-1" id="custName">Guest</h5>
+                    <p class="text-muted mb-0" id="custPhone">-</p>
+                </div>
+            </div>
+
+            <div class="table-responsive mb-4">
+                <table class="table table-borderless">
+                    <thead class="border-bottom">
+                        <tr>
+                            <th scope="col" class="text-uppercase text-muted small">Item</th>
+                            <th scope="col" class="text-center text-uppercase text-muted small">Qty</th>
+                            <th scope="col" class="text-end text-uppercase text-muted small">Price</th>
+                            <th scope="col" class="text-end text-uppercase text-muted small">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceItems">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row justify-content-end">
+                <div class="col-md-5">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Subtotal</span>
+                        <span class="fw-bold" id="invSubtotal">0.00 LKR</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2 text-danger">
+                        <span class="text-muted">Discount</span>
+                        <span class="fw-bold" id="invDiscount">-0.00 LKR</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="h5 fw-bold mb-0">Total</span>
+                        <span class="h4 fw-bold brand-color mb-0" id="invTotal">0.00 LKR</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5 pt-4 border-top">
+                <p class="text-muted mb-0">Thank you for shopping with Daily Mart!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="./assets/js/invoice.js"></script>
+</body>
+
+</html>
