@@ -69,7 +69,7 @@ function renderProducts(productList) {
     grid.innerHTML = productList.map(product => `
         <div class="col-6 col-md-4 col-xl-3">
             <div class="product-card bg-white overflow-hidden h-100">
-                <img src="${product.image ? product.image : '../images/no-image-available.jpg'}" alt="${product.name}" class="product-image">
+                <img src="${product.image ? product.image : './assets/images/no-image-available.jpg'}" alt="${product.name}" class="product-image">
                 <div class="product-body">
                     <div class="product-category text-uppercase fw-semibold">${product.category}</div>
                     <h5 class="product-name fw-semibold">${product.name}</h5>
