@@ -136,7 +136,7 @@ body {
     width: 100%;
     height: 240px;
     object-fit: cover;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #447ef1 0%, #1761ef 100%);
 }
 
 .product-body {
@@ -347,7 +347,7 @@ body {
         position: fixed;
         bottom: 2rem;
         right: 2rem;
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        background: linear-gradient(135deg, #447ef1 0%, #1761ef 100%);
         color: white;
         width: 60px;
         height: 60px;

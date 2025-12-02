@@ -17,47 +17,47 @@
         </div>
         <nav class="nav flex-column">
             <div class="nav-item">
-                <a class="nav-link active" href="#" title="Dashboard">
+                <a class="nav-link active" href="home.html" title="Dashboard">
                     <i class="fas fa-home"></i>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="#" title="Dairy Product">
+                <a class="nav-link nav-category-link" href="#" data-category="Dairy" title="Dairy Product">
                     <i class="fas fa-cheese"></i>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="#" title="Bakery Product">
+                <a class="nav-link nav-category-link" href="#" data-category="Bakery" title="Bakery Product">
                     <i class="fas fa-bread-slice"></i>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="#" title="Fruits">
+                <a class="nav-link nav-category-link" href="#" data-category="Fruits" title="Fruits">
                     <i class="fas fa-apple-whole"></i>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="#" title="Meat">
+                <a class="nav-link nav-category-link" href="#" data-category="Meat" title="Meat">
                     <i class="fas fa-drumstick-bite"></i>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="#" title="Beverages">
+                <a class="nav-link nav-category-link" href="#" data-category="Beverages" title="Beverages">
                     <i class="fas fa-mug-hot"></i>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="#" title="Vegetables">
+                <a class="nav-link nav-category-link" href="#" data-category="Vegetables" title="Vegetables">
                     <i class="fas fa-pepper-hot"></i>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="#" data-page="customers" title="Customer Management">
+                <a class="nav-link" href="customers.html" title="Customer Management">
                     <i class="fas fa-users"></i>
                 </a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="#" data-page="orders" title="Order Management">
+                <a class="nav-link" href="orders.html" title="Order Management">
                     <i class="fas fa-shopping-bag"></i>
                 </a>
             </div>
@@ -84,9 +84,9 @@
             </div>
 
             <div class="d-flex align-items-center ms-auto">
-                <div class="fw-semibold text-black d-none d-lg-block fw-semibold me-2">John Doe</div>
+                <div class="fw-semibold text-black d-none d-lg-block fw-semibold me-2" id="loggedInUser">John Doe</div>
                 <img src="https://ui-avatars.com/api/?name=John+Doe&background=6366f1&color=fff&size=128" alt="User"
-                    class="user-avatar rounded-circle border border-3 border-primary object-fit-cover">
+                    class="user-avatar rounded-circle border border-3 object-fit-cover">
             </div>
         </div>
 
@@ -95,13 +95,20 @@
                 <h1 class="h4 fw-bold mb-5 text-gray-900">Products</h1>
 
                 <div class="d-flex gap-2 mb-4 lex-wrap" id="categoryFilter">
-                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold active" data-category="all">All Products</button>
-                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold" data-category="Dairy">Dairy</button>
-                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold" data-category="Bakery">Bakery</button>
-                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold" data-category="Fruits">Fruits</button>
-                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold" data-category="Meat">Meat</button>
-                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold" data-category="Beverages">Beverages</button>
-                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold" data-category="Vegetables">Vegetables</button>
+                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold active"
+                        data-category="all">All Products</button>
+                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold"
+                        data-category="Dairy">Dairy</button>
+                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold"
+                        data-category="Bakery">Bakery</button>
+                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold"
+                        data-category="Fruits">Fruits</button>
+                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold"
+                        data-category="Meat">Meat</button>
+                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold"
+                        data-category="Beverages">Beverages</button>
+                    <button type="button" class="category-btn py-2 px-4 bg-white fw-semibold"
+                        data-category="Vegetables">Vegetables</button>
                 </div>
 
                 <div class="products-wrapper overflow-y-auto overflow-x-hidden pe-2 flex-fill">
@@ -129,7 +136,8 @@
                             <span class="cart-total-label fs-5 fw-semibold text-black">Total:</span>
                             <span class="cart-total-amount h4 fw-bold" id="cartTotalAmount">0.00 LKR</span>
                         </div>
-                        <button class="checkout-btn w-100 p-3 border-0 rounded-4 text-white fw-bold fs-6" id="checkoutBtn" disabled>
+                        <button class="checkout-btn w-100 p-3 border-0 rounded-4 text-white fw-bold fs-6"
+                            id="checkoutBtn" disabled>
                             <i class="fas fa-check-circle me-2"></i>Checkout
                         </button>
                     </div>
@@ -144,6 +152,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/home.js"></script>
     <script src="./assets/js/auth.js"></script>
 </body>
 
