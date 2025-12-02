@@ -1,17 +1,25 @@
-const products = [
-    { id: 1, name: "Fresh Organic Milk", category: "Dairy", price: 500, stock: 50, image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=400&q=80" },
-    { id: 2, name: "Whole Wheat Bread", category: "Bakery", price: 450, stock: 100, image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" },
-    { id: 3, name: "Fresh Apples", category: "Fruits", price: 150, stock: 75, image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=400&q=80" },
-    { id: 4, name: "Chicken Breast", category: "Meat", price: 1200, stock: 30, image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=400&q=80" },
-    { id: 5, name: "Orange Juice", category: "Beverages", price: 300, stock: 60, image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=400&q=80" },
-    { id: 6, name: "Greek Yogurt", category: "Dairy", price: 100, stock: 45, image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=400&q=80" },
-    { id: 7, name: "Fresh Tomatoes", category: "Vegetables", price: 200, stock: 80, image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=400&q=80" },
-    { id: 8, name: "Cheddar Cheese", category: "Dairy", price: 2100, stock: 40, image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=400&q=80" },
-    { id: 9, name: "Brown Eggs", category: "Dairy", price: 70, stock: 70, image: "https://images.unsplash.com/photo-1498654077810-12c21d4d6dc3?auto=format&fit=crop&w=400&q=80" },
-    { id: 10, name: "Bananas", category: "Fruits", price: 350, stock: 120, image: "https://images.unsplash.com/photo-1603833665858-e61d17a86224?auto=format&fit=crop&w=400&q=80" },
-    { id: 11, name: "Fresh Steak", category: "Meat", price: 2200, stock: 35, image: "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=400&q=80" },
-    { id: 12, name: "Fresh Lemonade", category: "Beverages", price: 300, stock: 60, image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80" }
-];
+let products = [];
+const storedProducts = localStorage.getItem('products');
+
+if (storedProducts) {
+    products = JSON.parse(storedProducts);
+} else {
+    products = [
+        { id: 1, name: "Fresh Organic Milk", category: "Dairy", price: 500, stock: 50, image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=400&q=80" },
+        { id: 2, name: "Whole Wheat Bread", category: "Bakery", price: 450, stock: 100, image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" },
+        { id: 3, name: "Fresh Apples", category: "Fruits", price: 150, stock: 75, image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=400&q=80" },
+        { id: 4, name: "Chicken Breast", category: "Meat", price: 1200, stock: 30, image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=400&q=80" },
+        { id: 5, name: "Orange Juice", category: "Beverages", price: 300, stock: 60, image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=400&q=80" },
+        { id: 6, name: "Greek Yogurt", category: "Dairy", price: 100, stock: 45, image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=400&q=80" },
+        { id: 7, name: "Fresh Tomatoes", category: "Vegetables", price: 200, stock: 80, image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=400&q=80" },
+        { id: 8, name: "Cheddar Cheese", category: "Dairy", price: 2100, stock: 40, image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=400&q=80" },
+        { id: 9, name: "Brown Eggs", category: "Dairy", price: 70, stock: 70, image: "https://images.unsplash.com/photo-1498654077810-12c21d4d6dc3?auto=format&fit=crop&w=400&q=80" },
+        { id: 10, name: "Bananas", category: "Fruits", price: 350, stock: 120, image: "https://images.unsplash.com/photo-1603833665858-e61d17a86224?auto=format&fit=crop&w=400&q=80" },
+        { id: 11, name: "Fresh Steak", category: "Meat", price: 2200, stock: 35, image: "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=400&q=80" },
+        { id: 12, name: "Fresh Lemonade", category: "Beverages", price: 300, stock: 60, image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80" }
+    ];
+    localStorage.setItem('products', JSON.stringify(products));
+}
 
 let cart = [];
 let filteredProducts = [...products];
