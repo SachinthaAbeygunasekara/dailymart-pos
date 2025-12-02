@@ -243,10 +243,8 @@ function initializeEventListeners() {
         const isDesktop = window.innerWidth > 992;
 
         if (isDesktop) {
-            // Desktop: toggle collapsed class, no overlay
             sidebarElement.classList.toggle('collapsed');
         } else {
-            // Mobile: toggle active class with overlay
             sidebarElement.classList.toggle('active');
             overlayElement.classList.toggle('active');
         }
@@ -272,12 +270,87 @@ function initializeEventListeners() {
         logout();
     });
 
-    document.getElementById('checkoutBtn').addEventListener('click', () => {
+    document.getElementById('checkoutBtn').addEventListener('click', async () => {
         if (cart.length > 0) {
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            alert(`Checkout successful!\n\nTotal Amount: $${total.toFixed(2)}\nItems: ${cart.length}`);
-            cart = [];
-            updateCart();
+            const customers = JSON.parse(localStorage.getItem('customers') || '[]');
+
+            let customerOptions = '<option value="guest">Guest Customer</option>';
+            customers.forEach(c => {
+                customerOptions += `<option value="${c.id}">${c.name} (${c.phone || 'No Phone'})</option>`;
+            });
+
+            const { value: formValues } = await Swal.fire({
+                title: 'Checkout Details',
+                html: `
+                    <div class="mb-3 text-start">
+                        <label class="form-label fw-semibold">Select Customer</label>
+                        <select id="swal-customer" class="form-select">
+                            ${customerOptions}
+                        </select>
+                    </div>
+                    <div class="mb-3 text-start">
+                        <label class="form-label fw-semibold">Discount (%)</label>
+                        <input id="swal-discount" type="number" class="form-control" placeholder="0" min="0" max="100">
+                    </div>
+                    <div class="text-end fw-bold h5">
+                        Subtotal: ${total.toFixed(2)} LKR
+                    </div>
+                `,
+                focusConfirm: false,
+                showCancelButton: true,
+                confirmButtonText: 'Complete Payment',
+                confirmButtonColor: '#10b981',
+                preConfirm: () => {
+                    return {
+                        customerId: document.getElementById('swal-customer').value,
+                        discount: document.getElementById('swal-discount').value
+                    }
+                }
+            });
+
+            if (formValues) {
+                const discountPercent = parseFloat(formValues.discount) || 0;
+                const discountAmount = (total * discountPercent) / 100;
+                const finalTotal = total - discountAmount;
+
+                let customerName = "Guest";
+                if (formValues.customerId !== 'guest') {
+                    const selectedCustomer = customers.find(c => c.id === formValues.customerId);
+                    if (selectedCustomer) customerName = selectedCustomer.name;
+                }
+
+                const order = {
+                    id: 'ORD-' + Date.now(),
+                    date: new Date().toLocaleString(),
+                    customerId: formValues.customerId,
+                    customerName: customerName,
+                    items: [...cart],
+                    subtotal: total,
+                    discount: discountAmount,
+                    discountPercent: discountPercent,
+                    total: finalTotal
+                };
+
+                const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+                orders.push(order);
+                localStorage.setItem('orders', JSON.stringify(orders));
+
+                localStorage.setItem('currentInvoice', JSON.stringify(order));
+
+                cart = [];
+                updateCart();
+
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Payment Complete!',
+                    text: `Total Paid: ${finalTotal.toFixed(2)} LKR`,
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+
+                window.location.href = 'invoice.html';
+            }
         }
     });
 
