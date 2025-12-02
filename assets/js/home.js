@@ -101,7 +101,7 @@ function addToCart(productId) {
         renderProducts(filteredProducts);
         showNotification(`${product.name} added to cart!`);
     } else {
-        showNotification(`${product.name} is out of stock!`);
+        showNotification(`${product.name} is out of stock!`, 'error');
     }
 }
 
@@ -363,13 +363,18 @@ function initializeEventListeners() {
     });
 }
 
-function showNotification(message) {
+function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
+
+    const bg = type === 'error'
+        ? 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)'
+        : 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+
     notification.style.cssText = `
         position: fixed;
         top: 100px;
         right: 2rem;
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        background: ${bg};
         color: white;
         padding: 1rem 1.5rem;
         border-radius: 12px;
