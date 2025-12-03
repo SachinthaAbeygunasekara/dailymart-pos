@@ -13,23 +13,34 @@
 
 ## 🛒 About the Project
 **DailyMart POS** is a web-based supermarket Point of Sale system developed using **HTML**, **CSS**, and **JavaScript**.  
-It includes billing, inventory tracking, customer management, and tax handling—ideal for grocery environments.
+It includes billing, inventory tracking, customer management, and discount handling—ideal for grocery environments.
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+<img width="1916" height="910" alt="Screenshot 2025-12-03 003621" src="https://github.com/user-attachments/assets/90671c5f-9fcc-4568-a4ab-5f7152540aa2" />
+<img width="1918" height="910" alt="image" src="https://github.com/user-attachments/assets/08135877-752c-4e61-b87a-59d7c543279d" />
+<img width="1919" height="910" alt="image" src="https://github.com/user-attachments/assets/e9e88363-f2f0-4768-a3a3-59b90b2e7856" />
+<img width="1919" height="911" alt="Screenshot 2025-12-03 114227" src="https://github.com/user-attachments/assets/61fa8242-746c-4740-9ac0-994b8e46b5c3" />
+<img width="1903" height="912" alt="Screenshot 2025-12-03 114251" src="https://github.com/user-attachments/assets/374a4411-d51f-4019-85f1-9cb188c56f95" />
+<img width="1917" height="909" alt="image" src="https://github.com/user-attachments/assets/f1f11f47-1f7b-45a4-ae44-82d2e9742779" />
+</div>
 
 ---
 
 ## ✨ Features
 
 ### 🛍 Product & Inventory (CRUD)
-- Add grocery items  
-- Edit product info  
+- Add grocery items    
 - Remove items  
 - Maintain stock levels  
-- Categorize products (Rice, Snacks, Drinks, etc.)
+- Categorize products
 
 ### 💳 Billing System
 - Add multiple products to cart  
 - Auto subtotal & total calculation  
-- Tax (VAT) calculation  
 - Quantity updates  
 - Remove items from cart  
 - Generate final bill  
@@ -66,9 +77,23 @@ Designed for:
 ```
 dailymart-pos/
 │── index.html
+│── home.html
+│── login.html
+│── signup.html
+│── add-product.html
+│── customers.html
+│── invoice.html
+│── order-details.html
 │── assets/
-│   ├── css/style.css
-│   └── js/app.js
+│   ├── css/
+│   │   └── home.css
+│   ├── js/
+│   │   ├── home.js
+│   │   ├── auth.js
+│   │   ├── customers.js
+│   │   ├── invoice.js
+│   │   └── order-details.js
+│   └── images/
 │── README.md
 ```
 
@@ -91,12 +116,10 @@ index.html
 
 ## 🌍 Deployment
 ```
-https://your-username.github.io/dailymart-pos/
+https://sachinthaabeygunasekara.github.io/dailymart-pos/
 ```
 
 ---
 
 ## 👨‍💻 Author
 **Sachintha**  
-
----
